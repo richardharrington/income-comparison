@@ -1,6 +1,7 @@
 (defproject income-comparison "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.8.0"]
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
                  [org.clojure/clojurescript "1.9.229"]
+                 [figwheel-sidecar "0.5.0"]
                  [reagent "0.6.0"]
                  [re-frame "0.9.1"]]
 
@@ -8,7 +9,7 @@
 
   :min-lein-version "2.5.3"
 
-  :source-paths ["src/clj"]
+  :source-paths ["src/clj" "script"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"]
@@ -19,7 +20,13 @@
   {:dev
    {:dependencies [[binaryage/devtools "0.8.2"]]
 
-    :plugins      [[lein-figwheel "0.5.7"]
+    :plugins      [
+
+                   ;; Note: You might need to comment out this line if you need to run Figwheel
+                   ;; in a Cursive Clojure repl.
+                   ;; See https://github.com/bhauman/lein-figwheel/wiki/Running-figwheel-in-a-Cursive-Clojure-REPL
+                   ;; [lein-figwheel "0.5.7"]
+
                    [lein-doo "0.1.7"]]
     }}
 
